@@ -54,7 +54,7 @@ const onFormSubmit = async ({ valid, values }) => {
                 </div>
             </div>
             <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
-                class="flex flex-col gap-4 mt-32">
+                class="flex flex-col gap-1 mt-32">
                 <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1 mb-4">
                     <FloatLabel variant="on" class="animate-fadeinleft animate-once animate-duration-1000">
                         <IconField>
