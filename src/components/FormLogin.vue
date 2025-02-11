@@ -21,7 +21,8 @@ const title = `Welcome Back 👋`;
 const titleArray = title.split("");
 const titleContainer = ref(null);
 onMounted(() => {
-    gsap.fromTo(
+    nextTick(() => {
+        gsap.fromTo(
         titleContainer.value.children,
         { opacity: 0, y: 50 },
         {
@@ -33,6 +34,7 @@ onMounted(() => {
             // `hsl(${Math.random() * 360}, 100%, 50%)`,
         }
     );
+  });
 });
 const loginSchema = z.object({
     user_id: z.string().min(1, { message: 'User ID is required!' }),

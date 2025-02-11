@@ -24,7 +24,6 @@ const resolver = zodResolver(loginSchema);
 const onFormSubmit = async ({ valid, values }) => {
     isLoading.value = true;
     if (valid) {
-        console.log("values", values)
         const urlRedirect = localStorage.getItem("redirectUrl") || "/"
         const result = await authStore.login(values);
         if (result.success) {
