@@ -34,7 +34,6 @@ body {
   overflow-y: auto;
   background-color: var(--body-bg);
   font-weight: normal;
-  /* color: var(--body-text-color); */
   font-family: "Public Sans",sans-serif,-apple-system,blinkmacsystemfont,
   "Segoe UI",roboto,"Helvetica Neue",arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
 }

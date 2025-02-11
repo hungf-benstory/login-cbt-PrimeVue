@@ -63,7 +63,7 @@ const onFormSubmit = async ({ valid, values }) => {
 <template>
     <div class="bg-[#F5F5F5] flex justify-center items-center h-screen">
         <div class="night-sky flex bg-[#000] w-full transition-all">
-            <div class="w-full hidden lg:block item-center p-24">
+            <div class="w-full hidden lg:block item-center px-24 py-12">
                 <div class="animate-fadeinleft animate-once animate-duration-1000 z-10">
                     <Image class="flex items-center justify-center" :src="logo" alt="Image" width="500" />
                 </div>
@@ -90,12 +90,12 @@ const onFormSubmit = async ({ valid, values }) => {
                 <!-- <div class="text-4xl">
                     돌아온 것을 환영합니다 👋
                 </div> -->
-                <div class="flex justify-start text-left animate-fadein animate-once font-light text-white animate-duration-1000 hidden lg:block text-lg ">
+                <div class="animate-fadein animate-once font-light text-white animate-duration-1000  text-lg ">
                     Your only limit is you. Push beyond it.
-                    <br />Sign in to start managing your projects.
+                    <br />Sign in and start achieving your goals!
                 </div>
                 <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
-                    class="flex flex-col gap-6 mt-16">
+                    class="flex flex-col gap-6 mt-10">
                     <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1">
                         <FloatLabel class="animate-fadeinleft animate-once animate-duration-1000">
                             <IconField>
@@ -126,7 +126,7 @@ const onFormSubmit = async ({ valid, values }) => {
                         href="#">Forgot password?</a>
                     <!-- icon="pi pi-sign-in" iconPos="right" -->
                     <Button type="submit" label="Sign In"
-                        class="border-none bg-[#162D3A] animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full text-white text-lg font-bold rounded-lg"
+                        class="border-none bg-[#162D3A] animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full text-white text-lg font-bold rounded-lg cursor-pointer"
                         :loading="isLoading" />
                 </Form>
                 <div class="mt-10 gap-8">
@@ -137,14 +137,14 @@ const onFormSubmit = async ({ valid, values }) => {
                             <div class="flex-grow h-px bg-gray-300"></div>
                         </div>
                         <Button
-                            class="border-none w-full justify-start mt-6 animate-fadeinleft animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
+                            class="border-none w-full justify-start mt-6 animate-fadeinleft animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg cursor-pointer font-light"
                             label="Sign in with Google">
                             <template #icon>
                                 <img :src="google" alt="Google" class="w-5 h-5 ml-[25%] mr-2" />
                             </template>
                         </Button>
                         <Button
-                            class="border-none w-full justify-start mt-6 animate-fadeinright animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
+                            class="border-none w-full justify-start mt-6 animate-fadeinright animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg cursor-pointer font-light"
                             label="Sign in with Facebook">
                             <template #icon>
                                 <img :src="facebook" alt="Google" class="w-5 h-5 ml-[25%] mr-2" />
