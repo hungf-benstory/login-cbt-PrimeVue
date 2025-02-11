@@ -90,8 +90,8 @@ const onFormSubmit = async ({ valid, values }) => {
                 <!-- <div class="text-4xl">
                     돌아온 것을 환영합니다 👋
                 </div> -->
-                <div class="flex justify-start text-left animate-fadein animate-once font-light animate-duration-1000 hidden lg:block text-lg ">
-                    Today is a new day.It's your day. You shape it.
+                <div class="flex justify-start text-left animate-fadein animate-once font-light animate-duration-1000 hidden lg:block text-lg">
+                    Your only limit is you. Push beyond it.
                     <br />Sign in to start managing your projects.
                 </div>
                 <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
