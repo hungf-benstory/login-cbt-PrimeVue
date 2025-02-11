@@ -28,12 +28,22 @@ export const useAuthStore = defineStore("auth", {
         return { success: false, message: "Invalid login or password!"};
       }
     },
-    logout() {
-      localStorage.removeItem("userInfo");
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("redirectUrl");
-      this.isLoggedIn = false;
-      this.userInfo = {};
+    async logout() {
+      try {
+        const res = await authApi.logout();
+        if (res.data) {
+          localStorage.removeItem("userInfo");
+          localStorage.removeItem("isLoggedIn");
+          localStorage.removeItem("redirectUrl");
+          this.isLoggedIn = false;
+          this.userInfo = {};
+          window.location = '/login';
+          return { success: true, message: "Logout successful" };
+        } else {
+        }
+      } catch (error) {
+        return { success: false, message: "Test"};
+      }
     },
   },
 });

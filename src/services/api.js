@@ -32,6 +32,7 @@ api.interceptors.response.use(
 
 const authApi = {
   login: (credentials) => api.post("/api/auth/login", credentials),
+  logout:()=> api.post("/api/auth/logout"),
   register: (userData) => api.post("/api/auth/register", userData),
   getCurrentUser: () => api.get("/api/auth/me"),
 };
