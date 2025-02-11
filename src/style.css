@@ -1,6 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer tailwind-base, primevue, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
 
 :root {
   --font-default: "NotoSanMono", "Helvetica Neue", Arial, "Noto Sans";
@@ -19,8 +26,8 @@ body {
   background-color: var(--body-bg);
   font-weight: normal;
   /* color: var(--body-text-color); */
-  font-family: sans-serif, "Segoe UI", "Helvetica Neue", arial, "Segoe UI Emoji",
-    "Segoe UI Symbol";
+  font-family: "Public Sans",sans-serif,-apple-system,blinkmacsystemfont,
+  "Segoe UI",roboto,"Helvetica Neue",arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
 }
 h1 {
   font-size: calc(2em * var(--text-multiplier));

@@ -1,10 +1,14 @@
 <script setup>
-import { reactive, ref } from 'vue';
+import { reactive, ref, onMounted } from 'vue';
 import { z } from 'zod';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { useToast } from 'primevue/usetoast';
 import { useAuthStore } from '../store/authStore';
 import { useRouter } from 'vue-router';
+import { gsap } from 'gsap';
+import logo from '@/assets/images/logo.png'
+import google from '@/assets/images/Google.png'
+import facebook from '@/assets/images/Facebook.png'
 const toast = useToast();
 const router = useRouter()
 const authStore = useAuthStore();
@@ -13,10 +17,26 @@ const initialValues = reactive({
     user_id: '',
     password: '',
 });
-
+const title = `Welcome Back 👋`;
+const titleArray = title.split("");
+const titleContainer = ref(null);
+onMounted(() => {
+    gsap.fromTo(
+        titleContainer.value.children,
+        { opacity: 0, y: 50 },
+        {
+            opacity: 1, y: 0,
+            duration: 0.05,
+            stagger: 0.1,
+            ease: 'power2.out',
+            color: () => '#000'
+            // `hsl(${Math.random() * 360}, 100%, 50%)`,
+        }
+    );
+});
 const loginSchema = z.object({
-    user_id: z.string().min(1, { message: '사용자가 필요합니다!' }),
-    password: z.string().min(1, { message: '비밀번호는 필수입니다!' }),
+    user_id: z.string().min(1, { message: 'User_id is required!' }),
+    password: z.string().min(1, { message: 'Password is required!' }),
 });
 
 const resolver = zodResolver(loginSchema);
@@ -24,7 +44,6 @@ const resolver = zodResolver(loginSchema);
 const onFormSubmit = async ({ valid, values }) => {
     isLoading.value = true;
     if (valid) {
-        console.log("values", values)
         const urlRedirect = localStorage.getItem("redirectUrl") || "/"
         const result = await authStore.login(values);
         if (result.success) {
@@ -37,97 +56,116 @@ const onFormSubmit = async ({ valid, values }) => {
         }
     } else {
         isLoading.value = false;
-        toast.add({ severity: 'error', summary: '모든 정보를 입력하세요!', life: 3000 });
+        // toast.add({ severity: 'error', summary: '모든 정보를 입력하세요!', life: 3000 });
     }
 };
 </script>
 <template>
-    <div class="animate-scalein animate-duration-1000 flex justify-center items-center h-screen">
-        <div
-            class="p-5 shadow-2xl w-full sm:w-[28rem] relative bg-white rounded-lg border border-[#0D1936] transition-all overflow-hidden">
-            <div
-                class="form-header absolute top-0 left-1/2 transform -translate-x-1/2 w-36 h-20 bg-[#0D1936] rounded-b-2xl flex items-center justify-center">
-                <div class="titles">
-                    <div class="absolute animate-zoominleft animate-duration-1000 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl">로그인</div>
+    <div class="bg-[#F5F5F5] flex justify-center items-center h-screen">
+        <div class="night-sky flex bg-[#000] w-full">
+            <div class="w-full hidden lg:block item-center p-24">
+                <div class="animate-fadeinleft animate-once animate-duration-1000 z-10">
+                    <Image class="flex items-center justify-center" :src="logo" alt="Image" width="500" />
                 </div>
-            </div>
-            <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
-                class="flex flex-col gap-4 mt-32">
-                <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1">
-                    <FloatLabel variant="on" class ="animate-fadeinleft animate-once animate-duration-1000" >
-                        <IconField>
-                            <InputText type="text" v-model="$field.value" size="large"
-                                class="w-full p-4 rounded-full" />
-                            <InputIcon class="pi pi-user mr-[10px]" />
-                        </IconField>
-                        <label class="text-sm ml-2.5 text-[#122143]" for="user_id">아이디</label>
-                    </FloatLabel>
-                    <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
-                        {{ $field.error?.message }}
-                    </Message>
-                </FormField>
-                <FormField v-slot="$field" name="password" initialValue="" class="gap-1">
-                    <FloatLabel variant="on" class ="animate-fadeinright animate-once animate-duration-1000">
-                        <IconField>
-                            <InputText type="password" v-model="$field.value" size="large"
-                                class="w-full p-4 rounded-full" />
-                            <InputIcon class="pi pi-lock mr-[10px]" />
-                        </IconField>
-                        <label class="text-sm ml-2.5 text-[#122143]" for="password">비밀번호</label>
-                    </FloatLabel>
-                    <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
-                        {{ $field.error?.message }}
-                    </Message>
-                </FormField>
-                <a class="animate-fadein animate-once animate-duration-2000 text-right text-sm text-primary hover:underline mt-5" href="#">비밀번호 찾기?</a>
-                <Button type="submit" label="로그인" icon="pi pi-sign-in" iconPos="right"
-                    class="animate-zoominup animate-once animate-duration-1000 p-button p-button-lg w-full bg-[#122143] text-white text-lg font-bold py-4 rounded-full"
-                    :loading="isLoading" />
-            </Form>
+                <!-- <h1 ref="textContainer" class="text-container flex-wrap text-center p-5">
+                    <span v-for="(char, index) in textArray" :key="index" class="text">{{ char }}</span>
+                </h1> -->
+                <div class="animate-fadeinup animate-once animate-duration-1000 mt-10">
+                    <div class="flex flex-wrap justify-center ">
+                        <h1>"A room without books<br>is like a body<br> without a soul."</h1>
+                    </div>
+                    <div class="flex flex-wrap justify-center ">
+                        <h4>- Marcus Tullius Cicero -</h4>
+                    </div>
+                </div>
 
-            <p class="animate-fadein animate-once animate-duration-2000 text-center text-sm mt-6 mb-5">
-                계정이 없나요?  <a href="#" class="text-primary hover:underline">등록하다</a>
-            </p>
+
+            </div>
+            <!-- bg-opacity-50 -->
+            <div
+                class="bg-[#fff] bg-opacity-50 z-10 p-4 sm:p-24 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
+                <div ref="titleContainer" class="text-container text-4xl flex-wrap text-center p-4">
+                    <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
+                </div>
+                <!-- <div class="text-4xl">
+                    돌아온 것을 환영합니다 👋
+                </div> -->
+                <div class="animate-fadein animate-once font-light animate-duration-1000 hidden lg:block text-lg ">
+                    Today is a new day.It's your day. You shape it.
+                    <br />Sign in to start managing your projects.
+                </div>
+                <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
+                    class="flex flex-col gap-6 mt-16">
+                    <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1">
+                        <FloatLabel class="animate-fadeinleft animate-once animate-duration-1000">
+                            <IconField>
+                                <InputText type="text" v-model="$field.value" size="large"
+                                    class="w-full rounded-lg " />
+                                <InputIcon class="pi pi-user mr-[10px]" />
+                            </IconField>
+                            <label class="text-sm ml-2.5 text-[#122143]" for="user_id">User_id</label>
+                        </FloatLabel>
+                        <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
+                            {{ $field.error?.message }}
+                        </Message>
+                    </FormField>
+                    <FormField v-slot="$field" name="password" initialValue="" class="gap-1">
+                        <FloatLabel class="animate-fadeinright animate-once animate-duration-1000">
+                            <IconField>
+                                <InputText type="password" v-model="$field.value" size="large"
+                                    class="w-full rounded-lg " />
+                                <InputIcon class="pi pi-lock mr-[10px]" />
+                            </IconField>
+                            <label class="text-sm ml-2.5 text-[#122143]" for="password">Password</label>
+                        </FloatLabel>
+                        <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
+                            {{ $field.error?.message }}
+                        </Message>
+                    </FormField>
+                    <a class="animate-fadein animate-once animate-duration-1000 text-right text-sm text-link hover:underline "
+                        href="#">Forgot password?</a>
+                    <Button type="submit" label="Sign In" icon="pi pi-sign-in" iconPos="right"
+                        class="border-none bg-[#162D3A] animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full text-white text-lg font-bold rounded-lg"
+                        :loading="isLoading" />
+                </Form>
+                <div class="mt-10 gap-8">
+                    <div class="auth-buttons-container">
+                        <div class="flex items-center gap-2">
+                            <div class="flex-grow h-px bg-gray-300"></div>
+                            <span class="text-black">Or</span>
+                            <div class="flex-grow h-px bg-gray-300"></div>
+                        </div>
+                        <Button
+                            class="border-none w-full mt-6 animate-fadeinleft animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
+                            label="Sign in with Google">
+                            <template #icon>
+                                <img :src="google" alt="Google" class="w-5 h-5 mr-2" />
+                            </template>
+                        </Button>
+                        <Button
+                            class="border-none w-full mt-6 animate-fadeinleft animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
+                            label="Sign in with Facebook">
+                            <template #icon>
+                                <img :src="facebook" alt="Google" class="w-5 h-5 mr-2" />
+                            </template>
+                        </Button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </template>
 
 
 <style scoped>
-.login_contents {
+.night-sky {
     position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('@/assets/images/background6.jpg');
+    background-position: center;
+    overflow: hidden;
+    background-size: cover;
 }
-
-.surface-card {
-    border: 2px solid #f0f0f0;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-header {
-    width: 140px;
-    border-radius: 0 0 20px 20px;
-}
-
-.form-header::before,
-.form-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 30px;
-    height: 30px;
-}
-
-.form-header::before {
-    left: -30px;
-    border-top-right-radius: 50%;
-    box-shadow: 15px 0 0 #0D1936;
-}
-
-.form-header::after {
-    right: -30px;
-    border-top-left-radius: 50%;
-    box-shadow: -15px 0 0 #0D1936;
-}
-
 </style>

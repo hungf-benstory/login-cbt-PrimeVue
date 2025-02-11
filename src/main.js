@@ -12,11 +12,12 @@ const app = createApp(App);
 const pinia = createPinia()
 app.use(PrimeVue, {
     theme: {
-        preset: Noir,
+        preset: Aura,
         options: {
-            prefix: 'p',
-            darkModeSelector: '.p-dark',
-            cssLayer: false,
+            cssLayer: {
+                name: 'primevue',
+                order: 'tailwind-base, primevue, tailwind-utilities'
+            }
         }
     }
 }).use(router).use(ToastService).use(pinia).mount('#app')

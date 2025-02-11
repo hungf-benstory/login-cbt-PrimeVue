@@ -26,7 +26,7 @@ const routes = [
     ],
   },
   {
-    path: "/loginv2",
+    path: "/login",
     component: DefaultLayout,
     children: [
       {
@@ -36,7 +36,7 @@ const routes = [
     ],
   },
   {
-    path: "/login",
+    path: "/loginv2",
     component: DefaultLayout,
     children: [
       {
