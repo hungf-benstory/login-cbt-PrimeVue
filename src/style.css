@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-default: "NotoSanMono", "Helvetica Neue", Arial, "Noto Sans";
+  --font-primary: "NotoSerif_b";
+  --font-secondary: "NotoSerif_m";
+  --font-oswald_m: "Oswald_m";
+  --font-jetbrain_i: "JetBrain_i";
+  --font-jetbrain_m: "JetBrain_m";
+  --text-multiplier: 1.8;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--body-bg);
+  font-weight: normal;
+  /* color: var(--body-text-color); */
+  font-family: sans-serif, "Segoe UI", "Helvetica Neue", arial, "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+h1 {
+  font-size: calc(2em * var(--text-multiplier));
+  font-family: var(--font-oswald_m);
+  color: #ef90d0;
+  font-weight: bold;
+}
+h4 {
+  padding-top: 1rem;
+  font-weight: 400;
+  font-family: var(--font-jetbrain_m);
+  color: aliceblue;
+  font-size: 24px;
+}
