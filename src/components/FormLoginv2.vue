@@ -94,16 +94,6 @@ const onFormSubmit = async ({ valid, values }) => {
 
 
 <style scoped>
-.login_contents {
-    position: relative;
-}
-
-.surface-card {
-    border: 2px solid #f0f0f0;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .form-header {
     width: 140px;
     border-radius: 0 0 20px 20px;
