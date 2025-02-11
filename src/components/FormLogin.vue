@@ -96,7 +96,7 @@ const onFormSubmit = async ({ valid, values }) => {
                     <br />Sign in and start achieving your goals!
                 </div>
                 <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
-                    class="flex flex-col gap-6 mt-10">
+                    class="flex flex-col gap-4 mt-10">
                     <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1">
                         <FloatLabel class="animate-fadeinleft animate-once animate-duration-1000">
                             <IconField>
@@ -105,9 +105,11 @@ const onFormSubmit = async ({ valid, values }) => {
                             </IconField>
                             <label class="text-sm ml-2.5 text-[#122143]" for="user_id">User ID</label>
                         </FloatLabel>
-                        <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
-                            {{ $field.error?.message }}
-                        </Message>
+                        <div class="min-h-5">
+                            <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
+                                {{ $field.error?.message }}
+                            </Message>
+                        </div>
                     </FormField>
                     <FormField v-slot="$field" name="password" initialValue="" class="gap-1">
                         <FloatLabel class="animate-fadeinright animate-once animate-duration-1000">
@@ -119,9 +121,11 @@ const onFormSubmit = async ({ valid, values }) => {
                             </IconField> -->
                             <label class="text-sm ml-2.5 text-[#122143]" for="password">Password</label>
                         </FloatLabel>
-                        <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
-                            {{ $field.error?.message }}
-                        </Message>
+                        <div class="min-h-5">
+                            <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
+                                {{ $field.error?.message }}
+                            </Message>
+                        </div>
                     </FormField>
                     <a class="animate-fadein animate-once animate-duration-1000 text-left text-sm text-link hover:underline cursor-pointer"
                         href="#">Forgot password?</a>
