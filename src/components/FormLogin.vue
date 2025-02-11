@@ -85,7 +85,7 @@ const onFormSubmit = async ({ valid, values }) => {
             <!-- backdrop-blur-lg -->
             <div
                 class="bg-gray-100/50  z-10 p-4 sm:px-28 sm:py-16 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
-                <div ref="titleContainer" class="text-container text-4xl font-bold flex-wrap text-center p-4">
+                <div ref="titleContainer" class="text-container text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">
                     <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
                 </div>
                 <!-- <div class="text-4xl">
@@ -96,7 +96,7 @@ const onFormSubmit = async ({ valid, values }) => {
                     <br />Sign in and start achieving your goals!
                 </div>
                 <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
-                    class="flex flex-col gap-4 mt-10">
+                    class="flex flex-col gap-6 mt-10">
                     <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1">
                         <FloatLabel class="animate-fadeinleft animate-once animate-duration-1000">
                             <IconField>

@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "./pages/Login.vue";
-import About from "./pages/About.vue";
+import LoginPage from "./pages/LoginPage.vue";
+import About from "./pages/AboutPage.vue";
 import { nextTick } from "vue";
 import { useAuthStore } from "./store/authStore";
-import MainLayout from "./components/layouts/MainLayout.vue";
-import DefaultLayout from "./components/layouts/DefaultLayout.vue";
-import NotFound from "./components/layouts/NotFound.vue";
-import LoginV2 from "./pages/LoginV2.vue";
-import Home from "./pages/Home.vue";
+import MainLayout from "./layouts/MainLayout.vue";
+import DefaultLayout from "./layouts/DefaultLayout.vue";
+import NotFound from "./layouts/NotFound.vue";
+import LoginPageV2 from "./pages/LoginPageV2.vue";
+import Home from "./pages/HomePage.vue";
 const routes = [
   {
     path: "/",
@@ -15,8 +15,8 @@ const routes = [
     children: [
       {
         path: "",
-        component: Home, 
-        meta: { requiresAuth: true }, 
+        component: Home,
+        meta: { requiresAuth: true },
       },
       {
         path: "/about",
@@ -31,7 +31,7 @@ const routes = [
     children: [
       {
         path: "",
-        component: Login,
+        component: LoginPage,
       },
     ],
   },
@@ -41,13 +41,13 @@ const routes = [
     children: [
       {
         path: "",
-        component: LoginV2,
+        component: LoginPageV2,
       },
     ],
   },
   {
-    path: "/:catchAll(.*)", 
-    component: NotFound, 
+    path: "/:catchAll(.*)",
+    component: NotFound,
   },
 ];
 
@@ -58,22 +58,17 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
-  
-  nextTick(() => {
-    if (to.path === "/" && !authStore.isLoggedIn) {
-      next("/login");
-    }
-    else if (to.path === "/login" && authStore.isLoggedIn) {
-      next("/");
-    }
-    else if (to.meta.requiresAuth && !authStore.isLoggedIn) {
-      localStorage.setItem('redirectUrl', to.path); 
-      next("/login"); 
-    }
-    else {
-      next();
-    }
-  });
+
+  if (to.path === "/" && !authStore.isLoggedIn) {
+    next("/login");
+  } else if (to.path === "/login" && authStore.isLoggedIn) {
+    next("/");
+  } else if (to.meta.requiresAuth && !authStore.isLoggedIn) {
+    localStorage.setItem("redirectUrl", to.path);
+    next("/login");
+  } else {
+    next();
+  }
 });
 
 export default router;
