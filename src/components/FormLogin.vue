@@ -35,7 +35,7 @@ onMounted(() => {
     );
 });
 const loginSchema = z.object({
-    user_id: z.string().min(1, { message: 'User_id is required!' }),
+    user_id: z.string().min(1, { message: 'User ID is required!' }),
     password: z.string().min(1, { message: 'Password is required!' }),
 });
 
@@ -111,11 +111,12 @@ const onFormSubmit = async ({ valid, values }) => {
                     </FormField>
                     <FormField v-slot="$field" name="password" initialValue="" class="gap-1">
                         <FloatLabel class="animate-fadeinright animate-once animate-duration-1000">
-                            <IconField>
+                            <Password type="text" :feedback="false" toggleMask fluid size="large"/>
+                            <!-- <IconField>
                                 <InputText type="password" v-model="$field.value" size="large"
                                     class="w-full rounded-lg " />
                                 <InputIcon class="pi pi-lock mr-[10px]" />
-                            </IconField>
+                            </IconField> -->
                             <label class="text-sm ml-2.5 text-[#122143]" for="password">Password</label>
                         </FloatLabel>
                         <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
@@ -143,7 +144,7 @@ const onFormSubmit = async ({ valid, values }) => {
                             </template>
                         </Button>
                         <Button
-                            class="border-none w-full mt-6 animate-fadeinleft animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
+                            class="border-none w-full mt-6 animate-fadeinright animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
                             label="Sign in with Facebook">
                             <template #icon>
                                 <img :src="facebook" alt="Google" class="w-5 h-5 mr-2" />
