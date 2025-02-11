@@ -83,7 +83,7 @@ const onFormSubmit = async ({ valid, values }) => {
             </div>
             <!-- bg-opacity-50 -->
             <div
-                class="bg-[#fff] bg-opacity-50 z-10 p-4 sm:p-24 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
+                class="bg-[#fff] bg-opacity-50 z-10 p-4 sm:px-24 sm:py-20 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
                 <div ref="titleContainer" class="text-container text-4xl flex-wrap text-center p-4">
                     <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
                 </div>
