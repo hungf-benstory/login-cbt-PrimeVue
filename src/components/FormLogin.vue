@@ -83,7 +83,7 @@ const onFormSubmit = async ({ valid, values }) => {
             </div>
             <!-- bg-opacity-50 -->
             <div
-                class="bg-[#fff] bg-opacity-50 z-10 p-4 sm:px-24 sm:py-20 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
+                class="bg-gray-100/50 z-10 p-4 sm:px-24 sm:py-20 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
                 <div ref="titleContainer" class="text-container text-4xl flex-wrap text-center p-4">
                     <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
                 </div>
@@ -99,8 +99,7 @@ const onFormSubmit = async ({ valid, values }) => {
                     <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1">
                         <FloatLabel class="animate-fadeinleft animate-once animate-duration-1000">
                             <IconField>
-                                <InputText type="text" v-model="$field.value" size="large"
-                                    class="w-full rounded-lg " />
+                                <InputText type="text" v-model="$field.value" size="large" class="w-full rounded-lg " />
                                 <InputIcon class="pi pi-user" />
                             </IconField>
                             <label class="text-sm ml-2.5 text-[#122143]" for="user_id">User ID</label>
@@ -111,7 +110,7 @@ const onFormSubmit = async ({ valid, values }) => {
                     </FormField>
                     <FormField v-slot="$field" name="password" initialValue="" class="gap-1">
                         <FloatLabel class="animate-fadeinright animate-once animate-duration-1000">
-                            <Password type="text" :feedback="false" toggleMask fluid size="large"/>
+                            <Password type="text" :feedback="false" toggleMask fluid size="large" />
                             <!-- <IconField>
                                 <InputText type="password" v-model="$field.value" size="large"
                                     class="w-full rounded-lg " />
@@ -125,8 +124,8 @@ const onFormSubmit = async ({ valid, values }) => {
                     </FormField>
                     <a class="animate-fadein animate-once animate-duration-1000 text-right text-sm text-link hover:underline "
                         href="#">Forgot password?</a>
-                        <!-- icon="pi pi-sign-in" iconPos="right" -->
-                    <Button type="submit" label="Sign In" 
+                    <!-- icon="pi pi-sign-in" iconPos="right" -->
+                    <Button type="submit" label="Sign In"
                         class="border-none bg-[#162D3A] animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full text-white text-lg font-bold rounded-lg"
                         :loading="isLoading" />
                 </Form>
