@@ -17,6 +17,15 @@
   --font-jetbrain_i: "JetBrain_i";
   --font-jetbrain_m: "JetBrain_m";
   --text-multiplier: 1.8;
+  --p-primary-50:  #F3F4F9;
+  --p-primary-100: #E6E7EF;
+  --p-primary-200: #D9DAE5;
+  --p-primary-300: #BCC0D1;
+  --p-primary-400: #9FA6BD;
+  --p-primary-500: #838CAA; 
+  --p-primary-600: #697091;
+  --p-primary-700: #505778; 
+  
 }
 
 body {

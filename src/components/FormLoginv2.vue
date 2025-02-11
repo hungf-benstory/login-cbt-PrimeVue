@@ -53,7 +53,7 @@ const onFormSubmit = async ({ valid, values }) => {
             </div>
             <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
                 class="flex flex-col gap-4 mt-32">
-                <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1">
+                <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1 mb-4">
                     <FloatLabel variant="on" class ="animate-fadeinleft animate-once animate-duration-1000" >
                         <IconField>
                             <InputText type="text" v-model="$field.value" size="large"
@@ -66,7 +66,7 @@ const onFormSubmit = async ({ valid, values }) => {
                         {{ $field.error?.message }}
                     </Message>
                 </FormField>
-                <FormField v-slot="$field" name="password" initialValue="" class="gap-1">
+                <FormField v-slot="$field" name="password" initialValue="" class="gap-1 mb-4">
                     <FloatLabel variant="on" class ="animate-fadeinright animate-once animate-duration-1000">
                         <IconField>
                             <InputText type="password" v-model="$field.value" size="large"
