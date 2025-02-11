@@ -7,7 +7,7 @@ import MainLayout from "./components/layouts/MainLayout.vue";
 import DefaultLayout from "./components/layouts/DefaultLayout.vue";
 import NotFound from "./components/layouts/NotFound.vue";
 import LoginV2 from "./pages/LoginV2.vue";
-
+import Home from "./pages/Home.vue";
 const routes = [
   {
     path: "/",
@@ -15,11 +15,11 @@ const routes = [
     children: [
       {
         path: "",
-        component: About, 
+        component: Home, 
         meta: { requiresAuth: true }, 
       },
       {
-        path: "about",
+        path: "/about",
         component: About,
         meta: { requiresAuth: true },
       },
