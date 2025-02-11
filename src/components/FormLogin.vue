@@ -101,7 +101,7 @@ const onFormSubmit = async ({ valid, values }) => {
                             <IconField>
                                 <InputText type="text" v-model="$field.value" size="large"
                                     class="w-full rounded-lg " />
-                                <InputIcon class="pi pi-user mr-[10px]" />
+                                <InputIcon class="pi pi-user" />
                             </IconField>
                             <label class="text-sm ml-2.5 text-[#122143]" for="user_id">User ID</label>
                         </FloatLabel>
