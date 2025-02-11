@@ -91,7 +91,7 @@ const onFormSubmit = async ({ valid, values }) => {
                 <!-- <div class="text-4xl">
                     돌아온 것을 환영합니다 👋
                 </div> -->
-                <div class="animate-fadein animate-once font-light animate-duration-1000  text-lg ">
+                <div class="animate-fadein animate-once font-light animate-duration-1000 text-lg">
                     Your only limit is you. Push beyond it.
                     <br />Sign in and start achieving your goals!
                 </div>

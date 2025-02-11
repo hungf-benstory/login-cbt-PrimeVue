@@ -48,13 +48,15 @@ const onFormSubmit = async ({ valid, values }) => {
             <div
                 class="form-header absolute top-0 left-1/2 transform -translate-x-1/2 w-36 h-20 bg-[#0D1936] rounded-b-2xl flex items-center justify-center">
                 <div class="titles">
-                    <div class="absolute animate-zoominleft animate-duration-1000 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl">로그인</div>
+                    <div
+                        class="absolute animate-zoominleft animate-duration-1000 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl">
+                        로그인</div>
                 </div>
             </div>
             <Form :initialValues="initialValues" :resolver="resolver" @submit="onFormSubmit" :validateOnBlur="true"
                 class="flex flex-col gap-4 mt-32">
                 <FormField v-slot="$field" name="user_id" initialValue="" class="gap-1 mb-4">
-                    <FloatLabel variant="on" class ="animate-fadeinleft animate-once animate-duration-1000" >
+                    <FloatLabel variant="on" class="animate-fadeinleft animate-once animate-duration-1000">
                         <IconField>
                             <InputText type="text" v-model="$field.value" size="large"
                                 class="w-full p-4 rounded-full" />
@@ -62,12 +64,15 @@ const onFormSubmit = async ({ valid, values }) => {
                         </IconField>
                         <label class="text-sm ml-2.5 text-[#122143]" for="user_id">아이디</label>
                     </FloatLabel>
-                    <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
-                        {{ $field.error?.message }}
-                    </Message>
+                    <div class="min-h-5">
+                        <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
+                            {{ $field.error?.message }}
+                        </Message>
+                    </div>
+
                 </FormField>
                 <FormField v-slot="$field" name="password" initialValue="" class="gap-1 mb-4">
-                    <FloatLabel variant="on" class ="animate-fadeinright animate-once animate-duration-1000">
+                    <FloatLabel variant="on" class="animate-fadeinright animate-once animate-duration-1000">
                         <IconField>
                             <InputText type="password" v-model="$field.value" size="large"
                                 class="w-full p-4 rounded-full" />
@@ -75,18 +80,22 @@ const onFormSubmit = async ({ valid, values }) => {
                         </IconField>
                         <label class="text-sm ml-2.5 text-[#122143]" for="password">비밀번호</label>
                     </FloatLabel>
-                    <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
-                        {{ $field.error?.message }}
-                    </Message>
+                    <div class="min-h-5">
+                        <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
+                            {{ $field.error?.message }}
+                        </Message>
+                    </div>
+
                 </FormField>
-                <a class="animate-fadein animate-once animate-duration-2000 text-right text-sm text-link hover:underline mt-5" href="#">비밀번호 찾기?</a>
+                <a class="animate-fadein animate-once animate-duration-2000 text-right text-sm text-link hover:underline mt-5"
+                    href="#">비밀번호 찾기?</a>
                 <Button type="submit" label="로그인" icon="pi pi-sign-in" iconPos="right"
                     class="border-none animate-zoominup animate-once animate-duration-1000 p-button p-button-lg w-full bg-[#122143] text-white text-lg font-bold py-4 rounded-full"
                     :loading="isLoading" />
             </Form>
 
             <p class="animate-fadein animate-once animate-duration-2000 text-center text-sm mt-6 mb-5">
-                계정이 없나요?  <a href="#" class="text-link hover:underline">등록하다</a>
+                계정이 없나요? <a href="#" class="text-link hover:underline">등록하다</a>
             </p>
         </div>
     </div>
@@ -119,5 +128,4 @@ const onFormSubmit = async ({ valid, values }) => {
     border-top-left-radius: 50%;
     box-shadow: -15px 0 0 #0D1936;
 }
-
 </style>
