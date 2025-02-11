@@ -64,13 +64,13 @@ const onFormSubmit = async ({ valid, values }) => {
     <div class="bg-[#F5F5F5] flex justify-center items-center h-screen">
         <div class="night-sky flex bg-[#000] w-full transition-all">
             <div class="w-full hidden lg:block item-center px-24 py-12">
-                <div class="animate-fadeinleft animate-once animate-duration-1000 z-10">
+                <div class="animate-fadeinup animate-once animate-duration-1000 z-10">
                     <Image class="flex items-center justify-center" :src="logo" alt="Image" width="500" />
                 </div>
                 <!-- <h1 ref="textContainer" class="text-container flex-wrap text-center p-5">
                     <span v-for="(char, index) in textArray" :key="index" class="text">{{ char }}</span>
                 </h1> -->
-                <div class="animate-fadeinup animate-once animate-duration-1000 mt-10">
+                <div class="animate-fadeindown animate-once animate-duration-1000 mt-10">
                     <div class="flex flex-wrap justify-center ">
                         <h1>"A room without books<br>is like a body<br> without a soul."</h1>
                     </div>
@@ -82,15 +82,16 @@ const onFormSubmit = async ({ valid, values }) => {
 
             </div>
             <!-- bg-opacity-50 -->
+            <!-- backdrop-blur-lg -->
             <div
-                class="bg-gray-100/50 z-10 p-4 sm:px-28 sm:py-16 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
+                class="bg-gray-100/50  z-10 p-4 sm:px-28 sm:py-16 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
                 <div ref="titleContainer" class="text-container text-4xl font-bold flex-wrap text-center p-4">
                     <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
                 </div>
                 <!-- <div class="text-4xl">
                     돌아온 것을 환영합니다 👋
                 </div> -->
-                <div class="animate-fadein animate-once font-light text-white animate-duration-1000  text-lg ">
+                <div class="animate-fadein animate-once font-light animate-duration-1000  text-lg ">
                     Your only limit is you. Push beyond it.
                     <br />Sign in and start achieving your goals!
                 </div>
@@ -122,7 +123,7 @@ const onFormSubmit = async ({ valid, values }) => {
                             {{ $field.error?.message }}
                         </Message>
                     </FormField>
-                    <a class="animate-fadein animate-once animate-duration-1000 text-left text-sm text-link hover:underline "
+                    <a class="animate-fadein animate-once animate-duration-1000 text-left text-sm text-link hover:underline cursor-pointer"
                         href="#">Forgot password?</a>
                     <!-- icon="pi pi-sign-in" iconPos="right" -->
                     <Button type="submit" label="Sign In" iconPos="right"
