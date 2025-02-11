@@ -84,13 +84,13 @@ const onFormSubmit = async ({ valid, values }) => {
             <!-- bg-opacity-50 -->
             <div
                 class="bg-gray-100/50 z-10 p-4 sm:px-28 sm:py-16 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
-                <div ref="titleContainer" class="text-container text-4xl flex-wrap text-center p-4">
+                <div ref="titleContainer" class="text-container text-4xl font-bold flex-wrap text-center p-4">
                     <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
                 </div>
                 <!-- <div class="text-4xl">
                     돌아온 것을 환영합니다 👋
                 </div> -->
-                <div class="flex justify-start text-left animate-fadein animate-once font-light animate-duration-1000 hidden lg:block text-lg">
+                <div class="flex justify-start text-left animate-fadein animate-once font-light text-white animate-duration-1000 hidden lg:block text-lg ">
                     Your only limit is you. Push beyond it.
                     <br />Sign in to start managing your projects.
                 </div>
