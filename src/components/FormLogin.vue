@@ -62,7 +62,7 @@ const onFormSubmit = async ({ valid, values }) => {
 </script>
 <template>
     <div class="bg-[#F5F5F5] flex justify-center items-center h-screen">
-        <div class="night-sky flex bg-[#000] w-full">
+        <div class="night-sky flex bg-[#000] w-full transition-all">
             <div class="w-full hidden lg:block item-center p-24">
                 <div class="animate-fadeinleft animate-once animate-duration-1000 z-10">
                     <Image class="flex items-center justify-center" :src="logo" alt="Image" width="500" />
@@ -103,7 +103,7 @@ const onFormSubmit = async ({ valid, values }) => {
                                     class="w-full rounded-lg " />
                                 <InputIcon class="pi pi-user mr-[10px]" />
                             </IconField>
-                            <label class="text-sm ml-2.5 text-[#122143]" for="user_id">User_id</label>
+                            <label class="text-sm ml-2.5 text-[#122143]" for="user_id">User ID</label>
                         </FloatLabel>
                         <Message v-show="$field?.invalid" severity="error" size="small" variant="simple">
                             {{ $field.error?.message }}
