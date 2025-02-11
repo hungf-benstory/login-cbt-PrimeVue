@@ -125,7 +125,7 @@ const onFormSubmit = async ({ valid, values }) => {
                     <a class="animate-fadein animate-once animate-duration-1000 text-left text-sm text-link hover:underline "
                         href="#">Forgot password?</a>
                     <!-- icon="pi pi-sign-in" iconPos="right" -->
-                    <Button type="submit" label="Sign In"
+                    <Button type="submit" label="Sign In" iconPos="right"
                         class="border-none bg-[#162D3A] animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full text-white text-lg font-bold rounded-lg cursor-pointer"
                         :loading="isLoading" />
                 </Form>
