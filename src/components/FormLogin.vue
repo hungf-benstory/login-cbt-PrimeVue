@@ -122,7 +122,7 @@ const onFormSubmit = async ({ valid, values }) => {
                             {{ $field.error?.message }}
                         </Message>
                     </FormField>
-                    <a class="animate-fadein animate-once animate-duration-1000 text-right text-sm text-link hover:underline "
+                    <a class="animate-fadein animate-once animate-duration-1000 text-left text-sm text-link hover:underline "
                         href="#">Forgot password?</a>
                     <!-- icon="pi pi-sign-in" iconPos="right" -->
                     <Button type="submit" label="Sign In"
