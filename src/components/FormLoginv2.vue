@@ -85,9 +85,6 @@ const onFormSubmit = async ({ valid, values }) => {
                 <div ref="titleContainer" class="text-container text-4xl flex-wrap text-center p-4">
                     <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
                 </div>
-                <!-- <div class="text-4xl">
-                    돌아온 것을 환영합니다 👋
-                </div> -->
                 <div class="animate-fadein animate-once font-light animate-duration-1000 hidden lg:block mt-6 text-lg ">
                     Today is a new day.It's your day. You shape it.
                     <br />Sign in to start managing your projects.
@@ -98,7 +95,7 @@ const onFormSubmit = async ({ valid, values }) => {
                         <FloatLabel variant="on" class="animate-fadeinleft animate-once animate-duration-1000">
                             <IconField>
                                 <InputText type="text" v-model="$field.value" size="large"
-                                    class="w-full p-4 rounded-full" />
+                                    class="w-full p-4 rounded-full !important" />
                                 <InputIcon class="pi pi-user mr-[10px]" />
                             </IconField>
                             <label class="text-sm ml-2.5 text-[#122143]" for="user_id">User_id</label>
@@ -111,7 +108,7 @@ const onFormSubmit = async ({ valid, values }) => {
                         <FloatLabel variant="on" class="animate-fadeinright animate-once animate-duration-1000">
                             <IconField>
                                 <InputText type="password" v-model="$field.value" size="large"
-                                    class="w-full p-4 rounded-full" />
+                                    class="w-full p-4 rounded-full !important" />
                                 <InputIcon class="pi pi-lock mr-[10px]" />
                             </IconField>
                             <label class="text-sm ml-2.5 text-[#122143]" for="password">Password</label>
@@ -123,19 +120,10 @@ const onFormSubmit = async ({ valid, values }) => {
                     <a class="animate-fadein animate-once animate-duration-1000 text-right text-sm text-primary hover:underline"
                         href="#">Forgot password?</a>
                     <Button type="submit" label="Sign In" icon="pi pi-sign-in" iconPos="right"
-                        class="btn-submit animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full bg-[#122143] text-white text-lg font-bold py-4 rounded-full"
+                        class="btn-submit animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full bg-blue-500 text-white text-lg font-bold py-4 rounded-full"
                         :loading="isLoading" />
                 </Form>
                 <div class="mt-10 gap-8">
-                    <!-- <Button
-                        class="btn-social animate-fade-left animate-once duration-1000 w-1/3 bg-teal-100 hover:bg-teal-200 text-gray-800 shadow-xl rounded-lg"
-                        label="Google" icon="pi pi-google" />
-                    <Button
-                        class="btn-social animate-scale-in animate-once duration-1000 w-1/3 bg-gray-100 hover:bg-gray-200 text-gray-800 shadow-xl rounded-lg"
-                        label="Apple" icon="pi pi-apple" />
-                    <Button
-                        class="btn-social animate-fade-right animate-once duration-1000 w-1/3 bg-blue-100 hover:bg-blue-200 text-gray-800 shadow-xl rounded-lg"
-                        label="Facebook" icon="pi pi-facebook" /> -->
                     <div class="auth-buttons-container">
                         <div class="flex items-center gap-2">
                             <div class="flex-grow h-px bg-gray-300"></div>
