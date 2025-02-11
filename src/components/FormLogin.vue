@@ -125,7 +125,8 @@ const onFormSubmit = async ({ valid, values }) => {
                     </FormField>
                     <a class="animate-fadein animate-once animate-duration-1000 text-right text-sm text-link hover:underline "
                         href="#">Forgot password?</a>
-                    <Button type="submit" label="Sign In" icon="pi pi-sign-in" iconPos="right"
+                        <!-- icon="pi pi-sign-in" iconPos="right" -->
+                    <Button type="submit" label="Sign In" 
                         class="border-none bg-[#162D3A] animate-fadein animate-once animate-duration-1000 p-button p-button-lg w-full text-white text-lg font-bold rounded-lg"
                         :loading="isLoading" />
                 </Form>
@@ -137,17 +138,17 @@ const onFormSubmit = async ({ valid, values }) => {
                             <div class="flex-grow h-px bg-gray-300"></div>
                         </div>
                         <Button
-                            class="border-none w-full mt-6 animate-fadeinleft animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
+                            class="border-none w-full justify-start mt-6 animate-fadeinleft animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
                             label="Sign in with Google">
                             <template #icon>
-                                <img :src="google" alt="Google" class="w-5 h-5 mr-2" />
+                                <img :src="google" alt="Google" class="w-5 h-5 ml-[25%] mr-2" />
                             </template>
                         </Button>
                         <Button
-                            class="border-none w-full mt-6 animate-fadeinright animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
+                            class="border-none w-full justify-start mt-6 animate-fadeinright animate-once animate-duration-1000 !bg-[#F3F9FA] text-gray-800 shadow-xl rounded-lg font-light"
                             label="Sign in with Facebook">
                             <template #icon>
-                                <img :src="facebook" alt="Google" class="w-5 h-5 mr-2" />
+                                <img :src="facebook" alt="Google" class="w-5 h-5 ml-[25%] mr-2" />
                             </template>
                         </Button>
                     </div>
