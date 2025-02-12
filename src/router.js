@@ -7,7 +7,7 @@ import MainLayout from "./layouts/MainLayout.vue";
 import DefaultLayout from "./layouts/DefaultLayout.vue";
 import NotFound from "./layouts/NotFound.vue";
 import LoginPageV2 from "./pages/LoginPageV2.vue";
-import Home from "./pages/HomePage.vue";
+import Home from "./components/home/HomeComponent.vue";
 const routes = [
   {
     path: "/",
@@ -72,3 +72,4 @@ router.beforeEach((to, from, next) => {
 });
 
 export default router;
+

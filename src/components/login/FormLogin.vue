@@ -3,12 +3,13 @@ import { reactive, ref, onMounted } from 'vue';
 import { z } from 'zod';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { useToast } from 'primevue/usetoast';
-import { useAuthStore } from '../store/authStore';
+import { useAuthStore } from '../../store/authStore';
 import { useRouter } from 'vue-router';
 import { gsap } from 'gsap';
 import logo from '@/assets/images/logo.png'
 import google from '@/assets/images/Google.png'
 import facebook from '@/assets/images/Facebook.png'
+import { nextTick } from "vue";
 const toast = useToast();
 const router = useRouter()
 const authStore = useAuthStore();
@@ -23,18 +24,18 @@ const titleContainer = ref(null);
 onMounted(() => {
     nextTick(() => {
         gsap.fromTo(
-        titleContainer.value.children,
-        { opacity: 0, y: 50 },
-        {
-            opacity: 1, y: 0,
-            duration: 0.05,
-            stagger: 0.1,
-            ease: 'power2.out',
-            color: () => '#000'
-            // `hsl(${Math.random() * 360}, 100%, 50%)`,
-        }
-    );
-  });
+            titleContainer.value.children,
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.05,
+                stagger: 0.1,
+                ease: 'power2.out',
+                color: () => '#000'
+                // `hsl(${Math.random() * 360}, 100%, 50%)`,
+            }
+        );
+    });
 });
 const loginSchema = z.object({
     user_id: z.string().min(1, { message: 'User ID is required!' }),
@@ -44,6 +45,8 @@ const loginSchema = z.object({
 const resolver = zodResolver(loginSchema);
 
 const onFormSubmit = async ({ valid, values }) => {
+
+    console.log("values",values)
     isLoading.value = true;
     if (valid) {
         const urlRedirect = localStorage.getItem("redirectUrl") || "/"
@@ -87,7 +90,8 @@ const onFormSubmit = async ({ valid, values }) => {
             <!-- backdrop-blur-lg -->
             <div
                 class="bg-gray-100/50  z-10 p-4 sm:px-28 sm:py-16 shadow-2xl w-full text-center sm:w-[60rem] relative transition-all overflow-hidden">
-                <div ref="titleContainer" class="text-container text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">
+                <div ref="titleContainer"
+                    class="text-container text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4">
                     <span v-for="(char, index) in titleArray" :key="index" class="text">{{ char }}</span>
                 </div>
                 <!-- <div class="text-4xl">
@@ -176,19 +180,19 @@ const onFormSubmit = async ({ valid, values }) => {
     overflow: hidden;
     background-size: cover;
 }
+
 h1 {
-  font-size: calc(2em * var(--text-multiplier));
-  font-family: var(--font-oswald_m);
-  color: #ef90d0;
-  font-weight: bold;
+    font-size: calc(2em * var(--text-multiplier));
+    font-family: var(--font-oswald_m);
+    color: #ef90d0;
+    font-weight: bold;
 }
 
 h4 {
-  padding-top: 1rem;
-  font-weight: 400;
-  font-family: var(--font-jetbrain_m);
-  color: aliceblue;
-  font-size: 24px;
+    padding-top: 1rem;
+    font-weight: 400;
+    font-family: var(--font-jetbrain_m);
+    color: aliceblue;
+    font-size: 24px;
 }
-
 </style>

@@ -4,8 +4,8 @@
 </template>
 
 <script setup>
-import FormLogin from '../components/FormLogin.vue';
-import FormLoginv2 from '../components/FormLoginv2.vue';
+import FormLogin from '../components/login/FormLogin.vue';
+import FormLoginv2 from '../components/login/FormLoginv2.vue';
 
 </script>
 

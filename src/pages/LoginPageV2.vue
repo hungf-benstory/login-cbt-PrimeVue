@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import FormLoginv2 from '../components/FormLoginv2.vue';
+import FormLoginv2 from '../components/login/FormLoginv2.vue';
 
 </script>
 

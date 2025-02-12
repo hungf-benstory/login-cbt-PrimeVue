@@ -3,7 +3,7 @@ import { reactive, ref } from 'vue';
 import { z } from 'zod';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { useToast } from 'primevue/usetoast';
-import { useAuthStore } from '../store/authStore';
+import { useAuthStore } from '../../store/authStore';
 import { useRouter } from 'vue-router';
 const toast = useToast();
 const router = useRouter()
