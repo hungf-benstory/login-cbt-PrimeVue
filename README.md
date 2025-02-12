@@ -13,6 +13,7 @@ CSS/SCSS/SASS Management: CSS/SCSS/SASS files should be managed within the asset
 Vue File Naming Rules: You have correctly used StudlyCase for component files. However, components inside the pages directory represent the smallest layout units and should be named using camelCase.
 Tailwind Version Update:
 Our team plans to transition from Tailwind 3 to Tailwind 4.
+
 Tailwind 3 builds fine in the development environment, but it causes structural errors with Vite during production builds.
 CSS Best Practices: Only :root, body, html, and loading should be declared in CSS. Your CSS file contains incorrect declarations like h1, h4, etc. These should be moved to the SCSS file.
 App Declaration in src/main.js: Writing the app declaration in a horizontal style reduces readability. Please add line breaks when using the use function and improve readability by breaking lines in import and declaration statements.
