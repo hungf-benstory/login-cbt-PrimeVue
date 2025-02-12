@@ -176,4 +176,19 @@ const onFormSubmit = async ({ valid, values }) => {
     overflow: hidden;
     background-size: cover;
 }
+h1 {
+  font-size: calc(2em * var(--text-multiplier));
+  font-family: var(--font-oswald_m);
+  color: #ef90d0;
+  font-weight: bold;
+}
+
+h4 {
+  padding-top: 1rem;
+  font-weight: 400;
+  font-family: var(--font-jetbrain_m);
+  color: aliceblue;
+  font-size: 24px;
+}
+
 </style>
